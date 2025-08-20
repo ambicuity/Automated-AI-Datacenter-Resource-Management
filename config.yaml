@@ -1,0 +1,58 @@
+# Configuration for AI Datacenter Resource Management System
+
+# Datacenter Resources Configuration
+datacenter:
+  total_cpu_cores: 1000
+  total_memory_gb: 2048
+  total_gpu_count: 50
+  total_storage_tb: 100
+
+# AI Workload Types Configuration
+workloads:
+  training:
+    default_cpu_requirement: 16
+    default_memory_gb: 64
+    default_gpu_requirement: 4
+    default_duration_hours: 24
+    performance_weight: 0.7
+    accuracy_weight: 0.3
+  
+  inference:
+    default_cpu_requirement: 4
+    default_memory_gb: 16
+    default_gpu_requirement: 1
+    default_duration_hours: 1
+    performance_weight: 0.8
+    accuracy_weight: 0.2
+    
+  data_processing:
+    default_cpu_requirement: 8
+    default_memory_gb: 32
+    default_gpu_requirement: 0
+    default_duration_hours: 6
+    performance_weight: 0.6
+    accuracy_weight: 0.4
+
+# Optimization Settings
+optimization:
+  algorithm: "weighted_score"  # Options: weighted_score, round_robin, priority_based
+  reallocation_interval_minutes: 15
+  performance_threshold: 0.85
+  resource_utilization_target: 0.80
+  enable_auto_scaling: true
+
+# Monitoring Settings
+monitoring:
+  metrics_collection_interval_seconds: 30
+  performance_history_retention_hours: 168  # 1 week
+  alert_thresholds:
+    cpu_utilization: 0.90
+    memory_utilization: 0.85
+    gpu_utilization: 0.95
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/datacenter_management.log"
+  max_file_size_mb: 100
+  backup_count: 5
